@@ -3,11 +3,14 @@ const bodyParser = require('body-parser');
 const { default: mongoose } = require('mongoose');
 const app = express();
 const PORT = 8000;
+const cors = require('cors');
 
 
 app.use(bodyParser.json());
 
-mongoose.connect('', {
+app.use(cors({origin: '*'}));
+
+mongoose.connect('mongodb://0.0.0.0:27017/testDB', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
